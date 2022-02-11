@@ -1,0 +1,109 @@
+/*---------- checkout page ----------
+-------------------------------------*/
+.section_checkout {
+  padding: 2.5rem 0;
+
+  & h2 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  & .checkout_box {
+    margin-top: 2.5rem;
+    & .checkout_form {
+      border: 1px solid var(--borderDark);
+      border-radius: 0.25rem;
+
+      & .checkout_head {
+        border-bottom: 4px solid var(--primary);
+        counter-reset: listCounter;
+        & > div {
+          padding: 1.25rem 0.5rem 1.25rem 2.5rem;
+          font-size: 0.875rem;
+          position: relative;
+
+          &::before {
+            counter-increment: listCounter;
+            content: counter(listCounter);
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            font-size: 2rem;
+            font-weight: var(--fw-bold);
+            line-height: 1;
+            transform: translateY(-50%);
+          }
+
+          & span {
+            font-size: 1rem;
+          }
+
+          &.active::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-left: 11px solid transparent;
+            border-right: 11px solid transparent;
+            border-bottom: 11px solid var(--primary);
+            transform: translateX(-50%);
+          }
+        }
+      }
+
+      & .form_box {
+        padding: 1.25rem;
+
+        & .cards {
+          width: 240px;
+        }
+
+        & .checkout_price > div {
+          padding: 0.25rem 0;
+        }
+      }
+    }
+
+    & .checkout_details {
+      --flow-spacer: 2rem;
+
+      & .checkout_price {
+        & > div + div {
+          border-top: 1px solid var(--borderDark);
+        }
+        & > div {
+          padding: 0.75rem 0;
+        }
+      }
+
+      & .benefit_box {
+        --flow-spacer: 1.5rem;
+      }
+
+      & .refund_box {
+        & > div {
+          --flow-spacer: 0.5rem;
+        }
+
+        & .moneyBack {
+          width: 100px;
+          display: block;
+          margin: 0 auto;
+        }
+        & p {
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+}
+
+/* retina screen */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.25),
+  only screen and (min--moz-device-pixel-ratio: 1.25),
+  only screen and (-o-min-device-pixel-ratio: 1.25/1),
+  only screen and (min-device-pixel-ratio: 1.25),
+  only screen and (min-resolution: 200dpi),
+  only screen and (min-resolution: 1.25dppx) {
+}

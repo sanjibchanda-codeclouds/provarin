@@ -1,0 +1,255 @@
+/*---------- forms ----------
+-----------------------------*/
+.form-text {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--clr-gray);
+}
+
+.form-label {
+  margin-bottom: 0.25rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.675rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--accent);
+  background-color: var(--secondaryLight);
+  background-clip: padding-box;
+  border: 1px solid var(--border);
+  appearance: none;
+  border-radius: 0;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &[type="file"] {
+    overflow: hidden;
+  }
+  &[type="file"]:not(:disabled):not([readonly]) {
+    cursor: pointer;
+  }
+  &:focus {
+    color: var(--accent);
+    background-color: var(--secondaryLight);
+    border: 1px solid var(--clr-black) !important;
+    outline: 1px solid var(--clr-black) !important;
+    box-shadow: none;
+    /* box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); */
+  }
+  &::placeholder {
+    color: #6c757d;
+    opacity: 1;
+  }
+  &:disabled,
+  &[readonly] {
+    background-color: #e9ecef;
+    opacity: 1;
+  }
+}
+
+/*----------------Forms----------------*/
+
+.form_container {
+  --flow-spacer: 1em;
+
+  & > * + * {
+    margin-top: var(--flow-spacer, 0.5em);
+  }
+
+  & .form_area {
+    align-items: flex-end;
+  }
+
+  & .form-group {
+    margin-bottom: 0;
+    position: relative;
+
+    & select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background: url("../images/arrow_down.svg") no-repeat 98% var(--secondary);
+      background-size: 0.5rem;
+    }
+
+    & .error {
+      background: url("../images/error.svg") no-repeat 98% var(--secondary);
+      background-size: 1rem;
+      border: 1px solid var(--danger);
+    }
+
+    & .warning {
+      background: url("../images/warning.svg") no-repeat 98% var(--secondary);
+      background-size: 1rem;
+      border: 1px solid var(--warning);
+    }
+
+    & .success {
+      background: url("../images/success.svg") no-repeat 98% var(--secondary);
+      background-size: 1rem;
+      border: 1px solid var(--success);
+    }
+    & .error-msg {
+      display: none;
+      margin-top: 0.25rem;
+      color: var(--danger);
+      font-size: 0.875rem;
+    }
+
+    & .form-check + .form-check {
+      margin-left: 0.5em;
+    }
+
+    & .form-check {
+      position: relative;
+      display: inline-block;
+
+      & input[type="radio"] {
+        position: absolute;
+        visibility: hidden;
+      }
+
+      & label {
+        display: inline-block;
+        position: relative;
+        font-weight: 300;
+        font-size: 1rem;
+        padding-left: 1.5em;
+        margin: 0;
+        z-index: 9;
+        cursor: pointer;
+        transition: all 0.25s linear;
+      }
+
+      &:hover label {
+        color: var(--clr-blue);
+      }
+
+      & .check {
+        display: block;
+        position: absolute;
+        border: 2px solid var(--clr-black);
+        border-radius: 50rem;
+        height: 1rem;
+        width: 1rem;
+        top: 0.25rem;
+        left: 0;
+        z-index: 5;
+        transition: border 0.25s linear;
+
+        &::before {
+          display: block;
+          position: absolute;
+          content: "";
+          border-radius: 100%;
+          height: 10px;
+          width: 10px;
+          top: 1px;
+          left: 1px;
+          margin: auto;
+          transition: background 0.25s linear;
+        }
+
+        &:hover .check {
+          border: 5px solid var(--border);
+        }
+      }
+    }
+    & .label-cbx {
+      user-select: none;
+      cursor: pointer;
+      margin-bottom: 0;
+
+      & input:checked + .checkbox {
+        border-color: var(--clr-blue);
+
+        & svg path {
+          fill: var(--clr-blue);
+        }
+        & svg polyline {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      &:hover .checkbox svg path {
+        stroke-dashoffset: 0;
+      }
+
+      & .checkbox {
+        position: relative;
+        float: left;
+        width: 18px;
+        height: 18px;
+        border: 2px solid var(--border);
+        border-radius: 3px;
+        box-sizing: border-box;
+        top: 2px;
+
+        & svg {
+          position: absolute;
+          top: -2px;
+          left: -2px;
+
+          & path {
+            fill: none;
+            stroke: var(--clr-blue);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 71px;
+            stroke-dashoffset: 71px;
+            transition: all 0.6s ease;
+          }
+
+          & polyline {
+            fill: none;
+            stroke: var(--clr-white);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 18px;
+            stroke-dashoffset: 18px;
+            transition: all 0.3s ease;
+          }
+        }
+      }
+
+      & > span {
+        pointer-events: none;
+        vertical-align: middle;
+        padding-left: 0.5rem;
+        color: var(--accent);
+      }
+
+      & .invisible {
+        position: absolute;
+        z-index: -1;
+        width: 0;
+        height: 0;
+        opacity: 0;
+      }
+    }
+
+    & .cntr {
+      position: relative;
+      width: 250px;
+      text-align: center;
+      margin: 50px auto 0px;
+    }
+
+    & input[type="radio"]:checked ~ .check {
+      border: 2px solid var(--borderDark);
+
+      &::before {
+        background: var(--borderDark);
+      }
+    }
+
+    & input[type="radio"]:checked ~ label {
+      color: var(--borderDark);
+    }
+  }
+}
