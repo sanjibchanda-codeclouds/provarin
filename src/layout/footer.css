@@ -38,13 +38,8 @@
         padding-left: 5px;
       }
       & .icon {
-        width: 120px;
-        height: 100px;
-
-        @media (--viewport-sm) {
-          width: 30px;
-          height: 30px;
-        }
+        width: 30px;
+        height: 30px;
 
         & path {
           fill: var(--primary);

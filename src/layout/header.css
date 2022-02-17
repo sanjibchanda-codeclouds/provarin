@@ -35,7 +35,8 @@
   border: 0;
   color: black;
   transition: 0.15s opacity ease-out;
-  display: inline-block;
+  /* display: inline-block; */
+  display: none;
 }
 .btn-cart svg {
   width: 26px;
